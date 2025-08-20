@@ -95,7 +95,7 @@ class DatabaseService:
                 ("1984", "George Orwell", "9780451524935", "fiction", 1949),
                 ("The Catcher in the Rye", "J.D. Salinger", "9780316769174", "fiction", 1951),
                 ("A Brief History of Time", "Stephen Hawking", "9780553380163", "science", 1988),
-                ("The Art of War", "Sun Tzu", "9781599869773", "history", 2000),
+                ("The Art of War", "Sun Tzu", "9781599869773", "history", 2003),
                 ("Steve Jobs", "Walter Isaacson", "9781451648539", "biography", 2011),
                 ("Clean Code", "Robert Martin", "9780132350884", "technology", 2008)
             ]
