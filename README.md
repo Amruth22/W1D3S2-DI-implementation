@@ -17,6 +17,8 @@ This project demonstrates:
 ├── main.py                 # FastAPI app entry point
 ├── dependencies.py         # Dependency injection setup
 ├── models.py              # Pydantic models
+├── requirements.txt        # Project dependencies
+├── unit_test.py           # API testing script
 ├── services/              # Service layer
 │   ├── database_service.py    # SQLite database operations
 │   ├── cache_service.py       # LRU cache implementation
@@ -86,11 +88,6 @@ pip install -r requirements.txt
 3. **Run the application**
 ```bash
 python main.py
-```
-
-Or using uvicorn directly:
-```bash
-uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
 4. **Access the API**
@@ -169,7 +166,17 @@ await email_service.send_overdue_notice(
 
 ## 🧪 Testing the API
 
-### 1. Create a Student
+### Automated Testing
+Run the comprehensive test suite:
+```bash
+python unit_test.py
+```
+
+This will test all endpoints and demonstrate the API functionality.
+
+### Manual Testing
+
+#### 1. Create a Student
 ```bash
 curl -X POST "http://localhost:8000/api/students/" \
   -H "Content-Type: application/json" \
