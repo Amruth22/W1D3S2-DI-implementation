@@ -10,12 +10,7 @@ from services.database_service import DatabaseService
 from services.cache_service import CacheService
 from services.email_service import EmailService
 from routers import books, students, borrow
-from dependencies import get_database_service, get_cache_service, get_email_service
-
-# Global service instances
-database_service = None
-cache_service = None
-email_service = None
+import dependencies
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -26,12 +21,12 @@ async def lifespan(app: FastAPI):
     print("🚀 Starting School Library Management API...")
     
     # Initialize services
-    database_service = DatabaseService()
-    cache_service = CacheService(max_size=100)
-    email_service = EmailService()
+    dependencies.database_service = DatabaseService()
+    dependencies.cache_service = CacheService(max_size=100)
+    dependencies.email_service = EmailService()
     
     # Initialize database
-    await database_service.initialize()
+    await dependencies.database_service.initialize()
     
     print("✅ All services initialized successfully!")
     
@@ -39,7 +34,8 @@ async def lifespan(app: FastAPI):
     
     # Shutdown
     print("🔄 Shutting down services...")
-    await database_service.close()
+    if dependencies.database_service:
+        await dependencies.database_service.close()
     print("👋 School Library Management API stopped!")
 
 # Create FastAPI app with lifespan
