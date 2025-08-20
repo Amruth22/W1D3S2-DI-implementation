@@ -29,7 +29,7 @@ class BookBase(BaseModel):
     author: str = Field(..., min_length=1, max_length=100)
     isbn: str = Field(..., min_length=10, max_length=13)
     category: BookCategory
-    publication_year: int = Field(..., ge=1000, le=2024)
+    publication_year: int = Field(..., ge=1, le=2024)
 
 class BookCreate(BookBase):
     pass
@@ -38,7 +38,7 @@ class BookUpdate(BaseModel):
     title: Optional[str] = Field(None, min_length=1, max_length=200)
     author: Optional[str] = Field(None, min_length=1, max_length=100)
     category: Optional[BookCategory] = None
-    publication_year: Optional[int] = Field(None, ge=1000, le=2024)
+    publication_year: Optional[int] = Field(None, ge=1, le=2024)
 
 class Book(BookBase):
     id: int
