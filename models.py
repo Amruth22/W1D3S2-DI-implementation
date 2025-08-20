@@ -49,7 +49,7 @@ class Book(BookBase):
 # Student Models
 class StudentBase(BaseModel):
     name: str = Field(..., min_length=1, max_length=100)
-    email: str = Field(..., regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: str = Field(..., pattern=r'^[^@]+@[^@]+\.[^@]+$')
     student_id: str = Field(..., min_length=1, max_length=20)
     grade: str = Field(..., min_length=1, max_length=10)
 
@@ -58,7 +58,7 @@ class StudentCreate(StudentBase):
 
 class StudentUpdate(BaseModel):
     name: Optional[str] = Field(None, min_length=1, max_length=100)
-    email: Optional[str] = Field(None, regex=r'^[^@]+@[^@]+\.[^@]+$')
+    email: Optional[str] = Field(None, pattern=r'^[^@]+@[^@]+\.[^@]+$')
     grade: Optional[str] = Field(None, min_length=1, max_length=10)
 
 class Student(StudentBase):
