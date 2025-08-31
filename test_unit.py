@@ -76,7 +76,7 @@ class CoreDependencyInjectionTests(unittest.TestCase):
         # Test models module
         self.assertTrue(hasattr(self.models, 'Book'))
         self.assertTrue(hasattr(self.models, 'Student'))
-        self.assertTrue(hasattr(self.models, 'BorrowRecord'))
+        self.assertTrue(hasattr(self.models, 'Borrow'))
         
         print("PASS: Dependency injection functions available")
         print("PASS: Service classes available")
@@ -382,7 +382,7 @@ class CoreDependencyInjectionTests(unittest.TestCase):
         
         # Test models structure
         try:
-            from models import Book, Student, BorrowRecord
+            from models import Book, Student, Borrow
             
             # Test model creation
             test_book = Book(
@@ -408,7 +408,7 @@ class CoreDependencyInjectionTests(unittest.TestCase):
             self.assertEqual(test_student.email, "test@school.edu")
             self.assertTrue(test_student.active)  # Default value
             
-            test_borrow = BorrowRecord(
+            test_borrow = Borrow(
                 student_id=1,
                 book_id=1,
                 borrow_date=date.today(),
