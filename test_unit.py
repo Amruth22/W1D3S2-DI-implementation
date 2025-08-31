@@ -386,11 +386,14 @@ class CoreDependencyInjectionTests(unittest.TestCase):
             
             # Test model creation
             test_book = Book(
+                id=1,
                 title="Test Book",
                 author="Test Author",
                 isbn="9780123456789",
-                category="test",
-                publication_year=2023
+                category="fiction",
+                publication_year=2023,
+                created_at=datetime.now(),
+                updated_at=datetime.now()
             )
             
             self.assertEqual(test_book.title, "Test Book")
@@ -398,10 +401,13 @@ class CoreDependencyInjectionTests(unittest.TestCase):
             self.assertEqual(test_book.status, "available")  # Default value
             
             test_student = Student(
+                id=1,
                 name="Test Student",
                 email="test@school.edu",
                 student_id="TEST001",
-                grade="Grade 10"
+                grade="Grade 10",
+                created_at=datetime.now(),
+                updated_at=datetime.now()
             )
             
             self.assertEqual(test_student.name, "Test Student")
