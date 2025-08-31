@@ -409,10 +409,14 @@ class CoreDependencyInjectionTests(unittest.TestCase):
             self.assertTrue(test_student.active)  # Default value
             
             test_borrow = Borrow(
+                id=1,
                 student_id=1,
                 book_id=1,
                 borrow_date=date.today(),
-                due_date=date.today() + timedelta(days=14)
+                due_date=date.today() + timedelta(days=14),
+                status="active",
+                created_at=datetime.now(),
+                updated_at=datetime.now()
             )
             
             self.assertEqual(test_borrow.student_id, 1)
